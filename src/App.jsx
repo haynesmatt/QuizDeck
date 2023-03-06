@@ -10,6 +10,7 @@ function App() {
       <h2>Sharpen your OOP knowledge... Ace that next SWE Internship Interview!</h2>
       <h2>Number of Cards: 10</h2>
       <Card />
+      <button>➡</button>
     </div>
   )
 }
