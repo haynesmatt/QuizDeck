@@ -33,11 +33,24 @@ function App() {
   const [num_cards, addCard] = useState(question_array.length)
   const [question, setQuestion] = useState(question_array[0]);
   const [answer, setAnswer] = useState(answer_array[0]);
+  const [index, setIndex] = useState(0)
 
   const changeCard = () => {
-    const randomIndex = Math.floor(Math.random() * num_cards);
-    setQuestion(question_array[randomIndex])
-    setAnswer(answer_array[randomIndex])
+    setIndex(Math.floor(Math.random() * num_cards));
+    setQuestion(question_array[index]);
+    setAnswer(answer_array[index]);
+  }
+
+  const nextCard = () => {
+    setIndex(index + 1 < question_array.length ? index + 1 : 0)
+    setQuestion(question_array[index]);
+    setAnswer(answer_array[index]);
+  }
+
+  const prevCard = () => {
+    setIndex(index - 1 >= 0 ? index - 1 : question_array.length - 1)
+    setQuestion(question_array[index]);
+    setAnswer(answer_array[index]);
   }
 
   return (
@@ -46,7 +59,11 @@ function App() {
       <h2>Sharpen your OOP knowledge with this QuizDeck!</h2>
       <h4>Number of Cards: {num_cards}</h4>
       <Card question={question} answer={answer} />
-      <button onClick={changeCard}>➡</button>
+      <div className='Buttons'>
+        <button onClick={nextCard}>Next</button>
+        <button onClick={prevCard}>Previous</button>
+        <button onClick={changeCard}>Random</button>
+      </div>
     </div>
   )
 }
