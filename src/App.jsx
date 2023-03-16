@@ -1,5 +1,5 @@
-import './App.css'
 import Card from './components/Card';
+import GuessForm from './components/GuessForm';
 import { useState } from 'react';
 
 function App() {
@@ -30,6 +30,22 @@ function App() {
       "Static",
   ]
 
+  const [guessForm, setGuessForm] = useState({guess: ""})
+  const [alert, setAlert] = useState("")
+
+  const handleChange = (e) => {
+    const newGuessForm = {};
+    const newValue = e.target.value
+    const key = e.target.name
+    newGuessForm[key] = newValue
+    setGuessForm({...guessForm, ...newGuessForm})
+  }
+
+  const onSubmit = () => {
+    alert(answer_array[index] == guessForm.guess ? 'Correct' : 'Wrong');
+  }
+
+
   const [num_cards, addCard] = useState(question_array.length)
   const [question, setQuestion] = useState(question_array[0]);
   const [answer, setAnswer] = useState(answer_array[0]);
@@ -55,20 +71,21 @@ function App() {
 
   return (
     <div className='App'>
+
       <h1>QuizDeck: Object-Oriented Programming</h1>
       <h2>Sharpen your OOP knowledge with this QuizDeck!</h2>
       <h4>Number of Cards: {num_cards}</h4>
+
       <Card question={question} answer={answer} />
-      <form>
-        <h4>Guess the answer here:</h4>
-        <input></input>
-        <input type="submit" value="Submit Guess" className='submit guess'></input>
-      </form>
+
+      <GuessForm guessForm={guessForm} handleChange={handleChange} onSubmit={onSubmit}/>
+
       <div className='Buttons'>
         <button onClick={nextCard}>Next</button>
         <button onClick={prevCard}>Back</button>
         <button onClick={changeCard}>Random</button>
       </div>
+
     </div>
   )
 }

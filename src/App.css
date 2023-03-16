@@ -19,20 +19,9 @@ button {
   padding: 24px;
   margin: 12px;
   color: #CCDAD1;
-  background-color: white;
+  background-color: #241f1ec1;
 }
 
 body {
   background-color: #38302E;
-}
-
-form {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  align-items: center;
-}
-
-input {
-  height: 24px;
 }
