@@ -59,9 +59,14 @@ function App() {
       <h2>Sharpen your OOP knowledge with this QuizDeck!</h2>
       <h4>Number of Cards: {num_cards}</h4>
       <Card question={question} answer={answer} />
+      <form>
+        <h4>Guess the answer here:</h4>
+        <input></input>
+        <input type="submit" value="Submit Guess" className='submit guess'></input>
+      </form>
       <div className='Buttons'>
         <button onClick={nextCard}>Next</button>
-        <button onClick={prevCard}>Previous</button>
+        <button onClick={prevCard}>Back</button>
         <button onClick={changeCard}>Random</button>
       </div>
     </div>

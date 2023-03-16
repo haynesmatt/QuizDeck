@@ -25,3 +25,14 @@ button {
 body {
   background-color: #38302E;
 }
+
+form {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+}
+
+input {
+  height: 24px;
+}
