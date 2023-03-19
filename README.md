@@ -7,7 +7,6 @@ This web app: **allows users to practice active recall with interactive flashcar
 Time spent: **10** hours spent in total
 
 # Part 2
-# Web Development Project 3 - *Name of App Here*
 
 Time spent: **5** hours spent in total
 
